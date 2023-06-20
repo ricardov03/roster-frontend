@@ -1,35 +1,39 @@
-# roster-frontend
+<p align="center"><a href="https://vuejs.org/" target="_blank">
+<svg class="logo" viewBox="0 0 128 128" width="128" height="128" data-v-11b02119=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-11b02119=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-11b02119=""></path></svg>
+</a></p>
 
-This template should help get you started developing with Vue 3 in Vite.
+## Code Challenge Zipdev + Stanbridge
 
-## Recommended IDE Setup
+Vue Frontend for the [roster-backend](https://github.com/ricardov03/roster-backend) required to solve the Code Challenge defined by Zipdev + Stanbridge.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## The Problem
 
-## Customize configuration
+For a single course titled “Example Course,” display a roster of students to an instructor allowing the instructor to
+record each student as present or absent.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## The Problem
 
-## Project Setup
+For a single course titled “Example Course,” display a roster of students to an instructor allowing the instructor to
+Record each student as present or absent.
 
-```sh
-npm install
-```
+## Requirements
 
-### Compile and Hot-Reload for Development
+- [x] Backend Laravel
+- [x] Frontend must interact with the backend via RESTful API
 
-```sh
-npm run dev
-```
+## To Do
+- [x] Define Layout (Tailwind UI).
+- [ ] Work the Navigation.
+- [ ] Implementing State Management.
+- [ ] Read and Present API calls.
+- [ ] Create a Custom Attendance View with a custom Toggle Component.
+- [ ] TBD
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
+> **NOTICE:** I started working on this challenge last night. I've been working the whole night to finish the Backend. I was trying to work with the Frontend right away, but I was sitting down the entire night, and I needed to disconnect to eat and attend sensitive diligences that only work during working hours during my visit to the US. I will be finishing the whole Frontend after my return.
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## How to use this repository?
+- [ ] Clone the Git repository.
+- [ ] Install dependencies. ```sh npm install```
+- [ ] Run the Server. ```sh npm run dev```
+ 
