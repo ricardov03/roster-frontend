@@ -1,5 +1,5 @@
 <script setup>
-import Course from "@/components/cards/Course.vue";
+import GridCard from "@/components/cards/GridCard.vue";
 import SectionTitle from "@/components/headers/SectionTitle.vue";
 </script>
 
@@ -24,10 +24,13 @@ export default{
   <main>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <SectionTitle title="Courses" button-text="New Course" />
-      <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Course />
+      <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <li v-for="course in courses" :key="course.id" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+          <GridCard :title="course.name" :tag="course.code" button-text="Review Sections" :url="`/courses/${course.id}`">
+            <p class="truncate text-sm text-gray-500"><strong>Sections:</strong> {{ course.sections.length }}</p>
+          </GridCard>
+        </li>
       </ul>
-      {{ courses }}
     </div>
   </main>
 </template>
