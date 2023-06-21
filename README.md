@@ -4,7 +4,7 @@
 
 ## Code Challenge Zipdev + Stanbridge
 
-Vue Frontend for the [roster-backend](https://github.com/ricardov03/roster-backend) required to solve the Code Challenge defined by Zipdev + Stanbridge.
+Vue Frontend for the [roster-backend](src/assets/logo.svg) required to solve the Code Challenge defined by Zipdev + Stanbridge.
 
 ## The Problem
 

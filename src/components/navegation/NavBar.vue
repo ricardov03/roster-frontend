@@ -1,6 +1,6 @@
 <template>
   <Disclosure as="nav" class="bg-white shadow" v-slot="{ open }">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 justify-between">
         <div class="flex">
           <div class="-ml-2 mr-2 flex items-center md:hidden">
@@ -15,20 +15,12 @@
             <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
           </div>
           <div class="hidden md:ml-6 md:flex md:space-x-8">
-            <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a href="#" class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">Dashboard</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Team</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Projects</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Calendar</a>
+            <RouterLink :to="item?.href" v-for="item in appData.currentNavOption.subnav" :key="item.name" :class="[item?.href === route.currentRoute.value.path ? 'border-b-2 border-indigo-500 text-gray-900' : 'cursor-pointer border-b-2 border-transparent text-gray-500', 'inline-flex items-center px-1 pt-1 text-sm font-medium hover:border-gray-300 hover:text-gray-700']">
+              {{ item?.name }}
+            </RouterLink>
           </div>
         </div>
         <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <button type="button" class="relative inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              <PlusIcon class="-ml-0.5 h-5 w-5" aria-hidden="true" />
-              New Job
-            </button>
-          </div>
           <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
             <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
               <span class="sr-only">View notifications</span>
@@ -98,4 +90,10 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { PlusIcon } from '@heroicons/vue/20/solid'
+import { useAppStore } from "@/stores/app";
+import { useRouter } from "vue-router";
+
+const route = useRouter();
+const appData = useAppStore();
+
 </script>

@@ -66,14 +66,14 @@
       <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
         <div class="flex h-16 shrink-0 items-center">
 
-          <span class="text-xl text-white uppercase font-bold">Simple Attendance</span>
+          <span class="text-xl text-white uppercase font-bold leading-7 sm:tracking-tight">Simple Attendance</span>
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
             <li>
               <ul role="list" class="-mx-2 space-y-1">
-                <li v-for="item in navigation" :key="item.name" @click="whereAmI">
-                  <RouterLink :to="item.href" :class="[item.href === route.currentRoute.value.path ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
+                <li v-for="item in navigation" :key="item.name">
+                  <RouterLink :to="item.href" @click="appData.updateCurrentMenu(item)" :class="[item.href === route.currentRoute.value.path ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
                     <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
                     {{ item.name }}
                   </RouterLink>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="lg:pl-72">
-      <NavBar :navs="" />
+      <NavBar />
 
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
@@ -126,46 +126,15 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import {
-  RectangleStackIcon,
   Cog6ToothIcon,
-  FolderIcon,
-  HomeIcon,
   XMarkIcon,
 } from '@heroicons/vue/24/outline'
+import {useAppStore} from "@/stores/app";
 
 const route = useRouter();
+const appData = useAppStore();
 
-const whereAmI = () => {
-  console.log(route.currentRoute.value.path)
-}
-
-const navigation = [
-  {
-    name: 'Home',
-    href: '/',
-    icon: HomeIcon
-  },
-  {
-    name: 'Courses',
-    href: '/courses',
-    icon: RectangleStackIcon,
-    subnav: [
-      {
-        name: 'Sections',
-        href: '/courses/sections'
-      },
-      {
-        name: 'Attendance',
-        href: '/courses/sections/attendance'
-      }
-    ]
-  },
-  {
-    name: 'Users',
-    href: '/users',
-    icon: FolderIcon
-  },
-]
+const navigation = appData.mainNavigation;
 
 const teams = [
   { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
