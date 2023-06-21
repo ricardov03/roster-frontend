@@ -9,7 +9,7 @@ export const useCourseStore = defineStore('courses', {
     actions: {
         async fetchCourses() {
             const response = await axios.get('http://roster-backend.test/api/v1/courses');
-            this.courses.value = response.data
+            this.courses = response.data.data
         }
     }
 })
