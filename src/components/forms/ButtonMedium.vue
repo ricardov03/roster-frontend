@@ -1,10 +1,12 @@
 <template>
-  <button type="button" class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-    <CheckCircleIcon class="-ml-0.5 h-5 w-5" aria-hidden="true" />
-    Button text<!---->
+  <button type="button" class="rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100">
+    <QueueListIcon class="h-4 w-4 inline" />
+    {{ text }}
   </button>
 </template>
 
 <script setup>
-import { CheckCircleIcon } from '@heroicons/vue/20/solid'
+import {QueueListIcon} from "@heroicons/vue/24/outline";
+
+defineProps(['text'])
 </script>

@@ -30,11 +30,22 @@ export const useAppStore = defineStore('app', () => {
             icon: FolderIcon
         },
     ]);
+    const attendanceSlideover = ref(false);
     const currentNavOption = ref({});
 
     function updateCurrentMenu(currentOption) {
         currentNavOption.value = currentOption;
     }
 
-    return { mainNavigation, currentNavOption, updateCurrentMenu }
+    function toggleAttendanceSlideover() {
+        attendanceSlideover.value = !attendanceSlideover.value;
+    }
+
+    return {
+        attendanceSlideover,
+        currentNavOption,
+        mainNavigation,
+        toggleAttendanceSlideover,
+        updateCurrentMenu
+    }
 })

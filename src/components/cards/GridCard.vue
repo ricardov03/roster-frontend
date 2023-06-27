@@ -9,10 +9,11 @@
           <h3 v-if="title" class="text-xl font-medium text-gray-900 mb-1">{{ title }}</h3>
           <p class="mt-2 text-sm text-gray-500 text-justify"><slot /></p>
         </div>
-        <button v-if="buttonText"
-                @click="goTo(url)"
-                type="button"
-                class="rounded bg-indigo-50 px-2 py-1 text-sm font-semibold text-indigo-600 shadow-sm w-48 hover:bg-indigo-100">
+        <button
+          v-if="buttonText"
+          @click="goTo(url)"
+          type="button"
+          class="rounded bg-indigo-50 px-2 py-1 text-sm font-semibold text-indigo-600 shadow-sm w-48 hover:bg-indigo-100">
           {{ buttonText }}
         </button>
       </div>
