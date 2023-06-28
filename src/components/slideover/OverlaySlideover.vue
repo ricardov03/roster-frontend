@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-10" @close="emits('closeSlideover')">
+    <Dialog as="div" class="relative z-10" @close="emit('closeSlideover')">
       <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
       </TransitionChild>
@@ -15,7 +15,7 @@
                     <div class="flex items-start justify-between">
                       <DialogTitle class="text-base font-semibold leading-6 text-gray-900">{{ title }}</DialogTitle>
                       <div class="ml-3 flex h-7 items-center">
-                        <button type="button" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" @click="emits('closeSlideover')">
+                        <button type="button" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" @click="emit('closeSlideover')">
                           <span class="sr-only">Close panel</span>
                           <XMarkIcon class="h-6 w-6" aria-hidden="true" />
                         </button>
@@ -49,5 +49,5 @@ defineProps({
     default: ''
   }
 })
-const emits = defineEmits(['update:closeSlideover'])
+const emit = defineEmits(['closeSlideover'])
 </script>

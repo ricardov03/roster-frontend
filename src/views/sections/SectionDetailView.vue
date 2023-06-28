@@ -1,23 +1,24 @@
 <script>
 // Vue 2 - Option API Sample.
+import AttendancesFeed from "@/components/feeds/AttendancesFeed.vue";
+import ButtonMedium from "@/components/forms/ButtonMedium.vue";
+import OverlaySlideover from "@/components/slideover/OverlaySlideover.vue";
 import SectionTitle from "@/components/headers/SectionTitle.vue";
 import {mapActions, mapState} from "pinia";
 import {useSectionStore} from "@/stores/sections";
-import { EnvelopeIcon, PhoneIcon, ChevronLeftIcon } from '@heroicons/vue/20/solid'
-import ButtonMedium from "@/components/forms/ButtonMedium.vue";
+import {EnvelopeIcon, PhoneIcon, ChevronLeftIcon} from '@heroicons/vue/20/solid'
 import {useAppStore} from "@/stores/app";
-import OverlaySlideover from "@/components/slideover/OverlaySlideover.vue";
-import SimpleFeed from "@/components/feeds/SimpleFeed.vue";
+import {useAttendanceStore} from "@/stores/attendances";
 
 export default{
   components: {
-    SimpleFeed,
-    OverlaySlideover,
+    AttendancesFeed,
     ButtonMedium,
     ChevronLeftIcon,
-    SectionTitle,
     EnvelopeIcon,
-    PhoneIcon
+    OverlaySlideover,
+    PhoneIcon,
+    SectionTitle
   },
   data() {
     return {}
@@ -25,8 +26,10 @@ export default{
   methods: {
     ...mapActions(useAppStore, ['toggleAttendanceSlideover']),
     ...mapActions(useSectionStore, ['fetchSectionData']),
-    openAttendanceList() {
-
+    ...mapActions(useAttendanceStore, ['fetchAttendanceData']),
+    getAttendances(section) {
+      this.toggleAttendanceSlideover();
+      this.fetchAttendanceData(section);
     }
   },
   created() {
@@ -35,12 +38,13 @@ export default{
   computed: {
     ...mapState(useAppStore, ['attendanceSlideover']),
     ...mapState(useSectionStore, ['section']),
+    ...mapState(useAttendanceStore, ['attendances'])
   }
 }
 </script>
 
 <template>
-  <main>
+  <main v-if="section?.id">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-end items-center">
         <RouterLink v-if="section.course" :to="`/courses/${this.$route.params.courseId}`" class="text-blue-500 text-sm uppercase"><ChevronLeftIcon class="w-4 h-4 inline tracking-tighter" /> Return to course details</RouterLink>
@@ -92,7 +96,7 @@ export default{
               <dt class="truncate text-sm font-medium text-gray-500">Recorded Attendances</dt>
               <dd class="mt-3 text-3xl font-semibold tracking-tight text-gray-900 flex justify-between">
                 {{ section.attendance_lists }}
-                <ButtonMedium text="Check Attendances" @click="toggleAttendanceSlideover" />
+                <ButtonMedium text="Check Attendances" @click="getAttendances($route.params.sectionId)" />
               </dd>
             </div>
           </dl>
@@ -133,7 +137,7 @@ export default{
       </div>
     </div>
     <OverlaySlideover title="Recorded Attendances" :open="attendanceSlideover" @closeSlideover="toggleAttendanceSlideover">
-      <SimpleFeed />
+      <AttendancesFeed :feedData="attendances" />
     </OverlaySlideover>
   </main>
 </template>

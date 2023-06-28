@@ -3,14 +3,14 @@ import axios from "axios";
 
 export const useAttendanceStore = defineStore('attendances', {
     state: () => ({
-        attendance: {}
+        attendances: {}
     }),
     getters: {},
     actions: {
         async fetchAttendanceData(sectionId) {
-            this.attendance = {};
+            this.attendances = {};
             const response = await axios.get(`http://roster-backend.test/api/v1/sections/${sectionId}/attendances`);
-            this.attendance = response.data.data
+            this.attendances = response.data.data
         }
     }
 })
