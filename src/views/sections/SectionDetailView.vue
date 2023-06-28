@@ -21,7 +21,9 @@ export default{
     SectionTitle
   },
   data() {
-    return {}
+    return {
+      loader: {},
+    }
   },
   methods: {
     ...mapActions(useAppStore, ['toggleAttendanceSlideover']),
@@ -33,13 +35,26 @@ export default{
     }
   },
   created() {
+    // this.loader = this.$loading.show({
+    //   container: this.fullPage ? null : this.$refs.formContainer,
+    //   canCancel: true,
+    //   onCancel: this.onCancel,
+    // });
     this.fetchSectionData(this.$route.params.sectionId);
   },
   computed: {
     ...mapState(useAppStore, ['attendanceSlideover']),
     ...mapState(useSectionStore, ['section']),
     ...mapState(useAttendanceStore, ['attendances'])
-  }
+  },
+  // watch: {
+  //   'section.id'(newSection) {
+  //     if(newSection) {
+  //       console.log('Loaded...');
+  //       this.loader.hide();
+  //     }
+  //   }
+  // }
 }
 </script>
 
