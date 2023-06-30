@@ -5,6 +5,7 @@ import UsersView from "@/views/UsersView.vue";
 import CourseDetailView from "@/views/courses/CourseDetailView.vue";
 import SectionDetailView from "@/views/sections/SectionDetailView.vue";
 import Absences from "@/views/attendances/Absences.vue";
+import NewAttendance from "@/views/attendances/NewAttendance.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/courses/:courseId/sections/:sectionId',
       name: 'sectionDetail',
       component: SectionDetailView
+    },
+    {
+      path: '/courses/:courseId/sections/:sectionId/new-attendance',
+      name: 'newAttendance',
+      component: NewAttendance
     },
     {
       path: '/courses/:courseId/sections/:sectionId/attendances/:attendanceId',
