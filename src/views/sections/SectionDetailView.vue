@@ -49,7 +49,7 @@ export default{
   <main v-if="section?.id">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-end items-center">
-        <RouterLink v-if="section.course" :to="`/courses/${this.$route.params.courseId}`" class="text-blue-500 text-sm uppercase"><ChevronLeftIcon class="w-4 h-4 inline tracking-tighter" /> Return to course details</RouterLink>
+        <RouterLink v-if="section.course" :to="`/courses/${this.$route.params.courseId}`" class="text-blue-500 text-sm uppercase"><ChevronLeftIcon class="w-4 h-4 mb-0.5 inline tracking-tighter" /> Return to course details</RouterLink>
       </div>
       <div class="flex flex-1 justify-between">
         <SectionTitle :title="section.course" :subtitle="section.name" :button-action="`/courses/${this.$route.params.courseId}/sections/${this.$route.params.sectionId}/new-attendance`" button-text="New Attendance" />

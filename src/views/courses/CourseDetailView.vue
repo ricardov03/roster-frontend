@@ -2,12 +2,13 @@
 // Vue 2 - Option API Sample.
 import GridCard from "@/components/cards/GridCard.vue";
 import SectionTitle from "@/components/headers/SectionTitle.vue";
-import { InformationCircleIcon } from '@heroicons/vue/20/solid'
+import { ChevronLeftIcon, InformationCircleIcon } from '@heroicons/vue/20/solid'
 import { useCourseStore } from "@/stores/courses";
 import {mapActions, mapState} from "pinia";
 
 export default{
   components: {
+    ChevronLeftIcon,
     GridCard,
     SectionTitle,
     InformationCircleIcon
@@ -28,16 +29,11 @@ export default{
 <template>
   <main>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end items-center">
+        <RouterLink :to="`/courses`" class="text-blue-500 text-sm uppercase"><ChevronLeftIcon class="w-4 h-4 mb-0.5 inline tracking-tighter" /> Return All Courses</RouterLink>
+      </div>
       <div class="flex flex-1 justify-between">
-        <SectionTitle :title="course.name" />
-        <div>
-          <span class="inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
-            <svg class="h-1.5 w-1.5 fill-blue-500" viewBox="0 0 6 6" aria-hidden="true">
-              <circle cx="3" cy="3" r="3" />
-            </svg>
-            {{ course.code }}
-          </span>
-        </div>
+        <SectionTitle :title="course.name" :subtitle="course.code" />
       </div>
       <div class="px-4 sm:px-0">
         <p class="mb-10 text-base leading-6 text-gray-900">{{ course.description }}</p>

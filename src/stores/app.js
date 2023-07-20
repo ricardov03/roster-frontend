@@ -13,16 +13,7 @@ export const useAppStore = defineStore('app', () => {
             name: 'Courses',
             href: '/courses',
             icon: RectangleStackIcon,
-            subnav: [
-                {
-                    name: 'Sections',
-                    href: '/courses/sections'
-                },
-                {
-                    name: 'Attendance',
-                    href: '/courses/sections/attendance'
-                }
-            ]
+            subnav: []
         },
         {
             name: 'Users',
