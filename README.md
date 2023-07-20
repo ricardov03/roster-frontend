@@ -1,10 +1,8 @@
-<p align="center"><a href="https://vuejs.org/" target="_blank">
-<svg class="logo" viewBox="0 0 128 128" width="128" height="128" data-v-11b02119=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-11b02119=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-11b02119=""></path></svg>
-</a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="src/assets/logo.svg" width="100" alt="Vue Logo"></a></p>
 
 ## Code Challenge Zipdev + Stanbridge
 
-Vue Frontend for the [roster-backend](src/assets/logo.svg) required to solve the Code Challenge defined by Zipdev + Stanbridge.
+Vue Frontend wrapper for the [roster-backend](https://github.com/ricardov03/roster-backend) api required to solve the Code Challenge defined by Zipdev + Stanbridge.
 
 ## The Problem
 
