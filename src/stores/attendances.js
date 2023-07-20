@@ -58,12 +58,6 @@ export const useAttendanceStore = defineStore('attendances', {
                     })
 
                     this.$router.push(returnPath)
-                } else {
-                    toastNotification.fire({
-                        icon: 'success',
-                        title: `Understood!`,
-                        text: `You can proceed with the required modifications.`
-                    })
                 }
             })
         }
