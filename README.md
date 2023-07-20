@@ -23,11 +23,11 @@ Record each student as present or absent.
 
 ## To Do
 - [x] Define Layout (Tailwind UI).
-- [ ] Work the Navigation.
-- [ ] Implementing State Management.
-- [ ] Read and Present API calls.
-- [ ] Create a Custom Attendance View with a custom Toggle Component.
-- [ ] TBD
+- [x] Work the Navigation.
+- [x] Implementing State Management.
+- [x] Read and Present API calls.
+- [x] Create a Custom Attendance View with a custom Toggle Component.
+- [ ] TBD - Define the whole Application Structure.
 
 
 > **NOTICE:** I started working on this challenge last night. I've been working the whole night to finish the Backend. I was trying to work with the Frontend right away, but I was sitting down the entire night, and I needed to disconnect to eat and attend sensitive diligences that only work during working hours during my visit to the US. I will be finishing the whole Frontend after my return.
